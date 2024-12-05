@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    box-sizing: border-box;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+nav{
+    background-color: black;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    border-bottom: 0.4px solid grey;
+    padding-bottom: 2vh;
+}
+nav img{
+    width: 18vw;
+    height: 6vh;
+    margin: 3vh;
+    margin-left: 10vh;
+}
+.main{
+    display: flex;
+}
+.one{
+    margin-top: 4vh;
+    height: 70.5vh;
+    width: 55vw;
+    border-right: 0.4px solid grey;
+}
+.two{
+    margin-top: 4vh;
+    height: 70.5vh;
+    width: 45vw;
+}
+.two h1{
+    margin-left: 10vw;
+}
+#logo{
+    margin-left: 3vw;
+    width: 50vw;
+    height: 60vh;
+}
+.two form{
+    margin-top: 10vh;
+    margin-left: 7vw;
+}
+input{
+    color: white;
+    font-size: 14pt;
+    padding-left: 2vw;
+    background-color: rgb(29, 29, 29);
+    border-radius: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    width: 24vw;
+    height: 6vh;
+    margin-bottom: 2vh;
+}
+label{
+    margin-top: 2vh;
+    font-weight: bold;
+    font-size: 14pt;
+}
+.two form button{
+    margin-top: 5vh;
+    height: 6vh;
+    width: 15vw;
+    background-color: orange;
+    color: black;
+    font-weight: bolder;
+    font-size: 14pt;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.one h2{
+    margin-left: 22vw;
+}
+.one button{
+    margin-left: 20vw;
+    margin-top: 5vh;
+    height: 6vh;
+    width: 15vw;
+    background-color: rgb(255, 89, 0);
+    color: black;
+    font-weight: bolder;
+    font-size: 14pt;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+#errmsg{
+    border: 1px solid rgb(255, 0, 153);
+    border-radius: 20px;
+    text-align: center;
+    padding: 2vh;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 6vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    background-color: rgba(245, 11, 112, 0.1);
+}
+#sccmsg{
+    border: 1px solid rgb(12, 255, 85);
+    border-radius: 20px;
+    text-align: center;
+    padding: 2vh;
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 6vh;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    background-color: rgba(34, 245, 11, 0.1);
+}

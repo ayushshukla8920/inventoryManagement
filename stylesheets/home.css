@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    box-sizing: border-box;
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+nav{
+    position: fixed;
+    background-color: black;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.4px solid grey;
+    padding-bottom: 2vh;
+}
+nav img{
+    width: 18vw;
+    height: 6vh;
+    margin: 3vh;
+    margin-left: 10vh;
+}
+nav a{
+    margin-top: 2vw;
+    margin-right: 5vw;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+nav h3{
+    font-size: 15pt;
+}
+nav h3:hover{
+    text-decoration: underline;
+}
+
+.sidebar a{
+    margin-top: 15vw;
+    margin-left: 4vw;
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+.sidebar a span{
+    font-size: 28pt;
+    margin-right: 1vw;
+}
+.sidebar a h3{
+    font-size: 22pt;
+}
+.sidebar h3:hover{
+    text-decoration: underline;
+}
+
+.main{
+    display: flex;
+}
+.sidebar{
+    margin-top: 12.2vh;
+    position: fixed;
+    border-right: 0.4px solid white;
+    width: 20vw;
+    height: 100vh;
+    background-color: black;
+}
+.content{
+    margin-top: 12.2vh;
+    margin-left: 20vw;
+    padding-top: 5vh;
+    padding-left: 5vh;
+    width: 80vw;
+    padding-bottom: 10vh;
+}
+.addProductButton{
+    margin-top: 4vh;
+    margin-left: 5vh;
+    width: 15vw;
+    height: 7vh;
+    background-color: rgb(3, 177, 3);
+    color: white;
+    border: 4px solid white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 12pt;
+}
+.addProductButton:hover{
+    transform: scale(1.03);
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+/* Modal container (hidden by default) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+    background-color: rgb(29, 29, 29);
+    margin: 20vh auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30vw;
+    height: 65vh;
+    text-align: center;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 6vh;
+    right: 4vw;
+    font-size: 34pt;
+    cursor: pointer;
+}
+
+/* Form fields */
+.modal-content input{
+    color: white;
+    font-weight: bold;
+    font-size: 14pt;
+    border: .5px solid white;
+    margin-top: 5vh;
+    background-color: rgb(29, 29, 29);
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+.modal-content h2{
+    font-size: 22pt;
+    margin-bottom: 4vh;
+}
+.modal-content button {
+    background-color: orange;
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+}
+.modal-content label{
+    font-weight: bold;
+    font-size: 14pt;
+    color: rgb(255, 230, 0);
+    margin-top: 2vh;
+}
+
+.submit-button {
+    font-weight: bold;
+    font-size: 18pt;
+    background-color: orange;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.product-card{
+    padding-left: 5vh;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-right: 15vh;
+    margin-top: 2vh;
+    border: 0.2px solid gray;
+    border-radius: 10px;
+}
+.details{
+    width: 40vw;
+}
+.product-card form{
+    margin-top: 2vh;
+}
+.product-card button{
+    font-size: 10pt;
+    background-color: rgb(29, 29, 29);
+    height: 7vh;
+    width: 10vw;
+    border-radius: 20px;
+    border: 2px solid green;
+    transition: .2s ease-out;
+}
+.product-card button:hover{
+    transform: scale(1.03);
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+.alert {
+    position: fixed;
+    top: 14vh;
+    right: 8vh;
+    background-color: #4caf50; /* Green for success */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.alert button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}

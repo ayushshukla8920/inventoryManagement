@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMate | Login</title>
+    <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+    <nav>
+        <img src="/images/logo.png" alt="">
+    </nav>
+    <div class="main">
+        <div class="one">
+            <img id="logo" src="/images/login.png" alt="">
+            <h2>New User ?</h2>
+            <a href="/signup"><button>Create Account</button></a>
+        </div>
+        <div class="two">
+            <h1>Login</h1>
+            <% if (msg && showOtpInput && otpok) { %>
+                <p style="color: rgb(89, 255, 80);" id="sccmsg"><%= msg %></p>
+            <% } %>
+            <% if (msg && showOtpInput && !otpok) { %>
+                <p style="color: rgb(255, 0, 204);" id="errmsg"><%= msg %></p>
+            <% } %>
+            <% if (msg && !showOtpInput && otpok) { %>
+                <p style="color: rgb(255, 0, 204);" id="errmsg"><%= msg %></p>
+            <% } %>
+            <% if (msg && !showOtpInput && !otpok) { %>
+                <p style="color: rgb(89, 255, 80);" id="sccmsg"><%= msg %></p>
+            <% } %>
+            <form action="/login" method="post">
+                <label for="username">Username</label>
+                <input name="username" type="text"/>
+                <label for="username">Password</label>
+                <input name="password" type="password"/>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

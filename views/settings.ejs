@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMate | Settings</title>
+    <link rel="stylesheet" href="/stylesheets/settings.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script>
+        function confirmDelete() {
+            return confirm("Confirm Password Change ?");
+        }
+        setTimeout(() => {
+            const alertDiv = document.querySelector('.alert');
+            if (alertDiv) {
+                alertDiv.style.opacity = '0';
+                setTimeout(() => {
+                    alertDiv.style.display = 'none';
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('alert');
+                    url.searchParams.delete('message');
+                    window.history.replaceState({}, '', url);
+                }, 500);
+            }
+        }, 3000);
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="/images/logo.png" alt="">
+        <div class="greet" style="margin-top: 3vh; margin-left: 20vw;">
+            <h4 style="color: orange;">Hello</h4>
+            <h2><%= user.name %></h2>
+        </div>
+        <a href="/logout"><span class="material-symbols-outlined">logout</span><h3>Logout</h3></a>
+    </nav>
+    <% if (alert) { %>
+        <div class="alert">
+            <p><%= message %></p>
+        </div>
+    <% } %>
+    <div class="main">
+        <div class="sidebar">
+            <a href="/"><span class="material-symbols-outlined">home</span><h3 style="margin-top: .5vh;">Home</h3></a>
+        </div>
+        <div class="content">
+            <h1>Account Settings</h1><br><br>
+            <div class="user-details">
+                <h2><strong style="color: orange;">Username :</strong> <%= user.username %></h2>
+                <h2><strong style="color: orange;">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> <%= user.name %></h2>
+                <h2><strong style="color: orange;">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</strong> <%= user.email %></h2>
+                <h2><strong style="color: orange;">Mobile No :</strong> <%= user.mobno %></h2>
+            </div>
+            <h1>Change Password</h1><br>
+            <form action="/settings" method="POST" onsubmit="return confirmDelete()">
+                <label for="oldPassword">Old Password</label><br>
+                <input type="password" id="oldPassword" name="oldPassword" required><br>
+                <label for="password">New Password</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackMate | Signup</title>
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <script>
+        function validatePasswords(event) {
+            const password = document.getElementById('password')?.value;
+            const confirmPassword = document.getElementById('cnfpassword')?.value;
+            const dob = document.querySelector('input[name="dob"]')?.value;
+            const name = document.querySelector('input[name="name"]')?.value;
+            const email = document.querySelector('input[name="email"]')?.value;
+            const mobno = document.querySelector('input[name="mobno"]')?.value;
+
+            // Skip validation if OTP input is shown
+            const otpInput = document.querySelector('input[name="otp"]');
+            if (otpInput) return;
+
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,18}$/;
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const mobnoRegex = /^\d{10}$/;
+
+            if (!nameRegex.test(name)) {
+                alert("Name should only contain letters and spaces.");
+                event.preventDefault();
+                return;
+            }
+            if (!mobnoRegex.test(mobno)) {
+                alert("Mobile number must be exactly 10 digits.");
+                event.preventDefault();
+                return;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                event.preventDefault();
+                return;
+            }
+            if (!passwordRegex.test(password)) {
+                alert(
+                    "Password must be 8-18 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character."
+                );
+                event.preventDefault();
+                return;
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="/images/logo.png" alt="">
+    </nav>
+    <div class="main">
+        <div class="one">
+            <img id="logo" src="/images/login.png" alt="">
+            <h2>Existing User ?</h2>
+            <a href="/login"><button>Login</button></a>
+        </div>
+        <div class="two">
+            <h1>Create New Account</h1>
+            <% if (msg && showOtpInput && otpok) { %>
+                <p style="color: rgb(11, 145, 3);" id="sccmsg"><%= msg %></p>
+            <% } %>
+            <% if (msg && showOtpInput && !otpok) { %>
+                <p style="color: red;" id="errmsg"><%= msg %></p>
+            <% } %>
+            <% if (msg && !showOtpInput && otpok) { %>
+                <p style="color: red;" id="errmsg"><%= msg %></p>
+            <% } %>  
+            <% if (msg && !showOtpInput && !otpok) { %>
+                <p style="color: rgb(11, 145, 3);" id="sccmsg"><%= msg %></p>
+            <% } %>       
+            <form action="/signup" method="post" onsubmit="validatePasswords(event)">
+                <label for="username">Username</label><br>
+                <input name="username" type="text" required><br>
+                <label for="name">Name</label><br>
+                <input name="name" type="text" required><br>
+                <label for="mobno">Mobile No.</label><br>
+                <input name="mobno" type="text" required><br>
+                <label for="email">Email</label><br>
+                <input name="email" type="text" required><br>
+                <label for="password">Password</label><br>
+                <input id="password" name="password" type="password" required><br>
+                <label for="cnfpassword">Confirm Password</label><br>
+                <input id="cnfpassword" name="cnfpassword" type="password" required><br>
+                <button type="submit"><%= showOtpInput ? "Verify OTP" : "Open Now" %></button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
